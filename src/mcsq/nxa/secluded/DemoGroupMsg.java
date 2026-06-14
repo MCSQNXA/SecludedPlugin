@@ -34,15 +34,15 @@ public class DemoGroupMsg {
 
 
         if (textmsg.equals("69")) {
-            SecPlugin.printI("发送消息应答 " + api.sendMessenger(new Messenger.Builder() {
+            api.sendMessenger(new Messenger.Builder() {
                 @Override
                 public void build(Messenger msg) {
                     msg.addMsg(Msg.Account, messenger.getString(Msg.Account));// 指定发送账号
-                    msg.addMsg(Msg.Group);//定义发送类型
+                    msg.addMsg(Msg.Group);// 标记群聊消息
                     msg.addMsg(Msg.GroupId, messenger.getString(Msg.GroupId));// 指定目标群聊
-                    msg.addMsg(Msg.Text, "696");//发送内容
+                    msg.addMsg(Msg.Text, "696");// 发送内容
                 }
-            }));
+            });
         }
 
         if (textmsg.equals("图片69")) {

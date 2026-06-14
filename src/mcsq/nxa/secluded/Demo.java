@@ -30,9 +30,9 @@ public class Demo implements SecPluginHandler {
                 public void run() {
                     SecPlugin plugin = new SecPlugin("ws://127.0.0.1:24804");
                     plugin.setAccessToken("y5s9WERi");// 令牌
-                    plugin.setHandler(new Demo());// 设置消息处理对象
-                    plugin.start();// 启动插件 新建一个线程
-                    //plugin.stop();// 停止插件 同步线程
+                    plugin.setHandler(new Demo());
+                    plugin.start();// 启动插件
+                    //plugin.stop();// 停止插件
                 }
             });
         }
@@ -47,13 +47,6 @@ public class Demo implements SecPluginHandler {
      */
     @Override
     public void onMsgHandler(final SecPlugin api, final Messenger messenger) {
-
-
-
-
-
-
-
 
 
         if (messenger.getString(Msg.Text).equals("6")) {

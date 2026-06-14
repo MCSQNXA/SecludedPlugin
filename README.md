@@ -13,7 +13,7 @@
 请求时需在 Header 中添加 `Authorization` 字段，格式为 `Bearer <Token>`：
 
 ```java
-super.addHeader("Authorization","Bearer y5s9WERi");
+// super.addHeader("Authorization","Bearer y5s9WERi");
 ```
 
 > 📌 **安全提示**：示例中的 `y5s9WERi` 为**协议令牌**，用户可在 `软件设置 -> 插件协议` 中自行查看和配置。
@@ -507,3 +507,40 @@ super.addHeader("Authorization","Bearer y5s9WERi");
 * `ProgressPush`: 存在该键时，主程序会向插件异步回调大文件上传进度。
 
 ---
+
+## ⚙️ 格式转换
+
+对于不熟悉 **Java** 语法的开发者，可以参考以下示例，将 Java 的消息发送格式无缝转换为通用的 **JSON** 格式。
+
+### Java 原始消息构建
+
+```java
+
+@Override
+public void build(Messenger msg) {
+    msg.addMsg(Msg.Account, messenger.getString(Msg.Account)); // 指定发送账号
+    msg.addMsg(Msg.Group);                                     // 标记为群聊消息
+    msg.addMsg(Msg.GroupId, messenger.getString(Msg.GroupId)); // 指定目标群聊
+    msg.addMsg(Msg.Text, "696");                               // 发送文本内容
+}
+```
+
+### 转换后的 Json 报文
+
+```json
+{
+  "seq": 1,
+  "cmd": "SendOicqMsg",
+  "rsp": true,
+  "data": [
+    {
+      "Account": "登录账号",
+      "Group": "Group",
+      "GroupId": "群号"
+    },
+    {
+      "Text": "696"
+    }
+  ]
+}
+```
