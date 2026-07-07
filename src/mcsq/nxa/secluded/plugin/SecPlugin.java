@@ -194,12 +194,12 @@ public class SecPlugin extends WebSocketClient {
             return;
         }
 
+        SecPlugin.this.reconnecting = true;
+
         //noinspection Convert2Lambda
         SecPlugin.thread(new Runnable() {
             @Override
             public void run() {
-                SecPlugin.this.reconnecting = true;
-
                 while (!SecPlugin.super.isOpen()) {
                     try {
                         SecPlugin.threadSleep(3000);
@@ -225,6 +225,7 @@ public class SecPlugin extends WebSocketClient {
      */
     @Override
     public void onError(Exception e) {
+        e.printStackTrace(System.err);
     }
 
     /**
