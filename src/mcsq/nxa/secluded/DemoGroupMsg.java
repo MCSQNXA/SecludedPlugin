@@ -1430,7 +1430,7 @@ public class DemoGroupMsg {
                         @Override
                         public void build(Messenger msg) {
                             msg.addMsg(Msg.Account, messenger.getString(Msg.Account));
-                            msg.addMsg(Msg.FavoriteCardListGet);
+                            msg.addMsg(Msg.FavoriteCardGetList);
                         }
                     }));
                 }

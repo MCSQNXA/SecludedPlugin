@@ -205,7 +205,8 @@ public class Msg {
 
 
     public static final String FavoriteCard = "FavoriteCard"; // 名片赞
-    public static final String FavoriteCardListGet = "FavoriteCardListGet"; // 获取点赞列表
+    public static final String FavoriteCardGetList = "FavoriteCardGetList"; // 获取点赞列表
+    public static final String FavoriteCardGetCount = "FavoriteCardGetCount"; // 获取名片赞数量
 
 
     public static final String UserInfoGet = "UserInfoGet"; // 获取上线信息
